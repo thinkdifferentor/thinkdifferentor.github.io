@@ -1,0 +1,29 @@
+# 首页身份区与侧栏信息
+name: Jun Jiang · 蒋 军
+role: AI 算法工程师
+role_en: AI ALGORITHM ENGINEER
+titles:
+  - AI4Science · 材料科学
+  - 医学影像 · 域泛化
+  - 智能制造 · 大模型落地
+location: 深圳 · 中国
+location_en: Shenzhen, China
+email: junjiang.steve@gmail.com
+github: thinkdifferentor
+github_url: https://github.com/thinkdifferentor
+
+bio: 电子科技大学计算机技术硕士，研究经历聚焦脑磁共振影像分析与医疗影像分割，围绕单源域泛化（SDG）与开放复合域适应（OCDA）提升模型在未知目标域上的分割泛化能力；工程经历从服务端开发转向 AI 算法落地，横跨质检大模型、材料配方优化、企业知识问答与产线视觉识别。兼具科研深度与工程交付能力、强调模型效果与业务指标的闭环。
+
+stats:
+  - value: "2 篇"
+    label: 学术论文
+    label_en: PAPERS
+  - value: "3 项"
+    label: 发明专利
+    label_en: PATENTS
+  - value: "5 项"
+    label: 软件著作权
+    label_en: COPYRIGHTS
+  - value: "2 年"
+    label: 算法工作经历
+    label_en: EXPERIENCE

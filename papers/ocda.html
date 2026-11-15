@@ -1,0 +1,171 @@
+---
+layout: default
+body_class: paper-page
+title: ATU / OCDA · 开放复合域自适应
+description: >-
+  论文《Augmentation, Transfer, and Update: Open Compound Domain Adaptation for Medical Image
+  Segmentation》的影像增广—迁移—更新框架、实验与图示解读。
+---
+
+<article class="paper">
+
+  <header class="paper-head reveal">
+    <a class="back-link" href="{{ site.baseurl }}/#publications">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M19 12H6M11 6.5 5.5 12 11 17.5"/></svg>
+      返回主页 · 学术成果
+    </a>
+
+    <p class="eyebrow">
+      <span class="eyebrow-key">PAPER / 02</span>
+      <span class="eyebrow-line" aria-hidden="true"></span>
+      <span class="eyebrow-val">MIDL 2025 · UNDER REVIEW</span>
+    </p>
+
+    <h1 class="paper-title">Augmentation, Transfer, and Update: Open Compound Domain Adaptation for Medical Image Segmentation</h1>
+
+    <p class="paper-authors"><span class="author-me">Jun Jiang</span> · Tianwei Zhang · Shi Gu</p>
+    <p class="paper-venue-row">
+      <span class="pub-venue">MIDL 2025</span>
+      <span class="dot-sep"></span>
+      <span>Medical Imaging with Deep Learning · 审稿中</span>
+      <span class="dot-sep"></span>
+      <span>所附 PDF 为匿名审稿版本</span>
+    </p>
+
+    <div class="paper-actions">
+      <a class="btn btn-primary" href="{{ site.baseurl }}/assets/files/ATU-OCDA.pdf">
+        下载 PDF
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5 12 15.5l5-5M5 19h14"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#cite">引用</a>
+    </div>
+  </header>
+
+  <!-- ── 概括 ─────────────────────────────────────────────── -->
+  <section class="reveal">
+    <h2 class="paper-h2"><span class="h2-num">01</span>一句话概括</h2>
+    <p>
+      临床数据是混杂且持续变化的：目标域可能包含多个异质分布（<b>复合域</b>），测试时还可能出现训练中完全没见过的新域（<b>开放域</b>）。
+      ATU 用三步覆盖它们——<b>影像增广（Augmentation）</b>制造多样灰度分布、<b>迁移（Transfer）</b>对齐幅度谱上的风格、
+      <b>更新（Update）</b>用记忆库在测试时在线适配。<b>既不需要域聚类，也不需要对抗训练。</b>
+    </p>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="stat-v">66.84%</div><div class="stat-k">BraTS'19 · 论文报告 Dice<span class="stat-en">DICE</span></div></div>
+      <div class="stat"><div class="stat-v">80.22%</div><div class="stat-k">Prostate · 论文报告 Dice<span class="stat-en">DICE</span></div></div>
+      <div class="stat"><div class="stat-v">9</div><div class="stat-k">UDA / SDG / OCDA 对比<span class="stat-en">BASELINES</span></div></div>
+    </div>
+  </section>
+
+  <!-- ── 问题 ─────────────────────────────────────────────── -->
+  <section class="reveal">
+    <h2 class="paper-h2"><span class="h2-num">02</span>要解决的问题</h2>
+    <p>
+      传统无监督域自适应（UDA）假设目标域是单一分布；单源域泛化（SDG）根本不使用目标域信息；
+      而开放复合域自适应（OCDA）面对的是「多个没有域标签的异质子域 + 训练时访问不到的开放域」。
+      已有 OCDA 方法通常先用 k-means 把复合目标域切成若干子域、再做对抗式风格迁移，
+      问题在于：聚类参数靠经验设定，子域数量的寻优又是计算密集的，一旦设错，表征就会崩掉。
+    </p>
+    <p>
+      本文回到信号处理里一个被广泛接受的猜想——<b>幅度谱主要决定图像风格，相位谱主要承载图像内容</b>——
+      用一套简单、可解释的流程替代聚类与对抗训练。
+    </p>
+
+    <h2 class="paper-h2"><span class="h2-num">03</span>方法：A · T · U</h2>
+
+    <figure class="figure">
+      <img src="{{ site.baseurl }}/assets/img/papers/ocda-fig1-framework.png"
+           alt="ATU 框架总览：左侧为源域与复合目标域经 Bézier 影像增广后做 FFT，中间为源域相位与目标域幅度组合成的风格迁移样本，右侧为记忆库在线更新流程" loading="lazy">
+      <figcaption>
+        <b>图 1 · ATU 总览。</b>蓝色箭头是影像增广，绿色箭头是风格迁移，紫色箭头是在线更新。
+        源域图像先做 Bézier 曲线影像增广，与复合目标域一起做 FFT；把<b>源域的相位</b>与<b>目标域的幅度</b>组合后再 iFFT，
+        得到「源域内容 + 目标域风格」的样本用于训练；右侧浅蓝区域是记忆库：用构造好的样本做检索（Retrieve）、
+        更新主干（Update Backbone），再把新的开放域样本回写（Upgrade）。
+      </figcaption>
+    </figure>
+
+    <ul class="point-list">
+      <li><b>A · Bézier 影像增广：</b>观察目标域的灰度分布，用两端点加两个控制点定义的 Bézier 曲线映射源域影像的灰度，
+        在<b>不发生几何形变</b>的前提下生成多种灰度分布（BraTS 同时使用递增与递减映射，Prostate 使用递增映射）。
+        相比 Cutout、RandConv、BasicAug 等面向自然图像的增广，这类保形影像增广在医学影像上更稳。</li>
+      <li><b>T · 自适应傅里叶风格迁移（AFST）：</b>用灰度直方图距离度量源域与目标域的风格相似度，
+        令幅度谱交换比例 β = 1 − Sim，再用掩码 M<sub>β</sub> 只替换低频区域的幅度谱、保留相位谱。
+        风格越接近，替换比例越小；差异越大，替换越多。<b>这个 β 是逐样本自适应的</b>，
+        比固定 β 或随机 β 更稳定，也避免了引入过多伪影。</li>
+      <li><b>U · 记忆库在线更新：</b>用训练好的模型在源域与复合目标域上<b>构造</b>记忆库（先进先出），
+        键值对是「图像—分割结果」。面对开放域样本时，按直方图相似度<b>检索</b>出 top-P 的支持集，
+        用其监督信号<b>更新</b>分割主干，再把该样本与预测<b>回写</b>进记忆库。</li>
+    </ul>
+
+    <p>
+      三者串起来的意义在于：影像增广负责让训练分布「变宽」，迁移负责让风格「贴近」，更新负责让模型在测试时「继续学」。
+      整个框架不含域聚类、不含对抗训练，超参少且都有明确的物理含义。
+    </p>
+  </section>
+
+  <!-- ── 实验 ─────────────────────────────────────────────── -->
+  <section class="reveal">
+    <h2 class="paper-h2"><span class="h2-num">04</span>实验与结果</h2>
+    <p>
+      在两个数据集上评估。BraTS：以 T2 为源域，T1 / Flair 作为复合目标域，T1CE 作为开放域；
+      Prostate：以 Site B 为源域，Site A / C / D / F 为复合目标域，Site E 为开放域。
+      主干为 U-Net + EfficientNet-b2，评价指标为 Dice。
+      对比对象覆盖三类方法：UDA（AdaptSegNet、FDA、SIFA）、SDG（IBN-Net、SW、RobustNet、SADN、CSDG）与
+      OCDA（SF-OCDA），并给出 Lower / Upper Bound。
+    </p>
+
+    <figure class="figure">
+      <img src="{{ site.baseurl }}/assets/img/papers/ocda-fig2-qualitative.png"
+           alt="定性对比：上半部分为 BraTS 在 Flair、T1、T1CE 上的分割，下半部分为 Prostate 六个数据来源上的分割" loading="lazy">
+      <figcaption>
+        <b>图 2 · 定性对比。</b>上半部分为 BraTS（Flair / T1 / T1CE），下半部分为 Prostate 的六个数据来源。
+        对比方法中，FDA / SIFA 等风格迁移类方法常出现大面积错误区域，聚类依赖的 SF-OCDA 在域差异较大时也不稳定；
+        ATU 在复合目标域与开放域上都给出了更贴合真值的边界。
+      </figcaption>
+    </figure>
+
+    <p>
+      按论文报告，方法在 BraTS'19 与 Prostate 上分别取得 <b>66.84%</b> 与 <b>80.22%</b> 的 Dice，
+      在复合目标域与开放域上均优于上述对比方法。消融实验进一步验证了两点：
+      Bézier 影像增广优于 Cutout / RandConv / BasicAug；自适应 β 的 AFST 比固定或随机 β 更准、更稳。
+    </p>
+  </section>
+
+  <!-- ── 说明 ─────────────────────────────────────────────── -->
+  <section class="reveal">
+    <h2 class="paper-h2"><span class="h2-num">05</span>版本说明</h2>
+    <p>
+      本页所附 PDF 是该工作的<b>匿名审稿版本</b>（早期以 MICCAI 2024 投稿格式排版，因此作者与单位为匿名），
+      投稿标题与方法内容与当前版本一致；论文目前投往 MIDL 2025，处于审稿阶段。
+    </p>
+  </section>
+
+  <!-- ── 引用 ─────────────────────────────────────────────── -->
+  <section class="reveal" id="cite">
+    <h2 class="paper-h2"><span class="h2-num">06</span>引用</h2>
+    <div class="bibtex">
+      <button class="copy-btn" type="button">COPY</button>
+      <pre>@inproceedings{jiang2025atu,
+  title     = {Augmentation, Transfer, and Update: Open
+               Compound Domain Adaptation for Medical
+               Image Segmentation},
+  author    = {Jiang, Jun and Zhang, Tianwei and Gu, Shi},
+  booktitle = {Medical Imaging with Deep Learning (MIDL)},
+  year      = {2025},
+  note      = {Under review}
+}</pre>
+    </div>
+    <p class="muted" style="font-size:12px;color:var(--fg-4)">
+      录用信息可能变化，正式引用请以最终出版版本为准。
+    </p>
+  </section>
+
+  <nav class="paper-foot reveal" aria-label="论文导航">
+    <a class="back-link" href="{{ site.baseurl }}/#publications" style="margin:0">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M19 12H6M11 6.5 5.5 12 11 17.5"/></svg>
+      全部学术成果
+    </a>
+    <a class="link" href="{{ site.baseurl }}/papers/egsdg.html">上一篇 · EGSDG</a>
+  </nav>
+
+</article>

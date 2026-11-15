@@ -1,0 +1,44 @@
+- key: egsdg
+  short: EGSDG
+  title: "Train Once, Deploy Anywhere: Edge-Guided Single-source Domain Generalization for Medical Image Segmentation"
+  authors: Jun Jiang, Shi Gu
+  venue: MIDL 2024
+  venue_full: Medical Imaging with Deep Learning (MIDL) 2024 · PMLR
+  status: 已发表
+  status_en: PUBLISHED
+  year: "2024"
+  tags: [单源域泛化, 医学图像分割, 边缘先验]
+  figures:
+    - image: /assets/img/papers/egsdg-fig1-architecture.png
+      label: FIG. 1 — EGSDG 方法总览
+      alt: EGSDG 框架图，左侧为 BraTS 影像与对应 Sobel 梯度图，右侧为边缘引导的单源域泛化训练流程
+    - image: /assets/img/papers/egsdg-fig3-strategies.png
+      label: FIG. 3 — 边缘引导的七种策略
+      alt: 七种边缘引导策略在 U-Net 上的可视化，编号①至⑦分别标注边缘输入、与特征图拼接以及边缘监督的位置
+  teaser: 只用一个源域训练，也要在没见过的目标域上分割对——关键是把「域不变」的图像边缘直接当作模型输入。
+  links:
+    - label: 论文详情
+      url: /papers/egsdg.html
+      kind: page
+      external: false
+
+- key: ocda
+  short: ATU
+  title: "Augmentation, Transfer, and Update: Open Compound Domain Adaptation for Medical Image Segmentation"
+  authors: Jun Jiang, Tianwei Zhang, Shi Gu
+  venue: MIDL 2025 · Under Review
+  venue_full: Medical Imaging with Deep Learning (MIDL) 2025 · 审稿中（早期匿名投稿版本见 MICCAI 2024）
+  status: 审稿中
+  status_en: UNDER REVIEW
+  year: "2025"
+  tags: [开放复合域自适应, 傅里叶风格迁移, 记忆库在线更新]
+  figures:
+    - image: /assets/img/papers/ocda-fig1-framework.png
+      label: FIG. 1 — ATU 方法总览
+      alt: ATU 框架图，包含 Bézier 曲线影像增广、自适应傅里叶风格迁移与基于记忆库的在线更新三个模块
+  teaser: 目标域由多个异质分布混合、测试时还会出现全新域：用影像增广、风格迁移与在线更新三步覆盖它们。
+  links:
+    - label: 论文详情
+      url: /papers/ocda.html
+      kind: page
+      external: false

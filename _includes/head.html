@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {{ site.author }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="author" content="{{ site.author }}">
+<meta name="theme-color" content="#08090a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="{{ site.url | default: site.github.url }}{{ site.baseurl }}{{ page.url }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.author }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} · {{ site.author }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url | default: site.github.url }}{{ site.baseurl }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url | default: site.github.url }}{{ site.baseurl }}/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="{{ site.baseurl }}/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.data.profile.name }}",
+  "jobTitle": "{{ site.data.profile.role }}",
+  "email": "mailto:{{ site.data.profile.email }}",
+  "url": "{{ site.url | default: site.github.url }}{{ site.baseurl }}",
+  "address": { "@type": "PostalAddress", "addressLocality": "Shenzhen", "addressCountry": "CN" },
+  "sameAs": ["{{ site.data.profile.github_url }}"],
+  "knowsAbout": ["Medical Image Segmentation", "Domain Generalization", "Large Language Models", "Computer Vision"]
+}
+</script>
+
+<script>
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var saved = localStorage.getItem('jj-theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>

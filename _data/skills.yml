@@ -1,0 +1,19 @@
+- group: 算法
+  group_en: ALGORITHMS
+  items: [深度学习, 机器学习, 域泛化 / 域自适应, 贝叶斯优化, 差分演化算法, 群体智能算法, 主动学习, 表格基座大模型, 时序预测大模型]
+
+- group: 大模型应用
+  group_en: LLM STACK
+  items: [LLM / VLM, LangChain, MCP, Dify, MinerU, vLLM, Ollama, LLaMA-Factory]
+
+- group: 数据与基础设施
+  group_en: DATA & INFRA
+  items: [MySQL, PostgreSQL, MongoDB, Redis, ActiveMQ, Grafana]
+
+- group: 语言与工程
+  group_en: LANGUAGES
+  items: [Python, PyTorch, C++, Java, Spring Boot, Spring Cloud, MyBatis]
+
+- group: 研究方向
+  group_en: RESEARCH
+  items: [医学图像分割, 领域自适应, 多模态对齐, AI4Material]

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="JJ">
+  <rect width="64" height="64" rx="12" fill="#0b0d0f"/>
+  <path d="M12 22V12h10M42 12h10v10M52 42v10H42M22 52H12V42"
+        fill="none" stroke="#4fe3b0" stroke-opacity="0.85" stroke-width="2"/>
+  <text x="32" y="43" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace"
+        font-size="28" font-weight="600" letter-spacing="-2" fill="#e8eaed">JJ</text>
+</svg>

@@ -1,0 +1,290 @@
+---
+layout: default
+title: AI 算法工程师 · 医学影像与智能制造
+description: Jun Jiang —— AI 算法工程师，计算机技术硕士。研究聚焦医学图像分割中的单源域泛化与开放复合域自适应，工程聚焦工业质检、材料配方与文档智能中的深度学习与大模型落地。
+---
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero reveal" id="top">
+  <p class="eyebrow">
+    <span class="eyebrow-key">PROFILE</span>
+    <span class="eyebrow-line" aria-hidden="true"></span>
+    <span class="eyebrow-val">{{ site.data.profile.location_en }} · AI / CV / LLM</span>
+  </p>
+
+  <div class="hero-top">
+    <div class="hero-main">
+      <h1 class="hero-name">{{ site.data.profile.name }}</h1>
+
+      <ul class="hero-titles" aria-label="关键词">
+        {% for t in site.data.profile.titles %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+
+      <p class="hero-bio">{{ site.data.profile.bio }}</p>
+    </div>
+
+    <figure class="hero-photo">
+      <img src="{{ site.baseurl }}/assets/img/portrait.jpg" alt="Jun Jiang 的个人照片" width="528" height="650">
+    </figure>
+  </div>
+
+  <dl class="stats">
+    {% for s in site.data.profile.stats %}
+    <div class="stat">
+      <dt class="stat-v">{{ s.value }}</dt>
+      <dd class="stat-k">{{ s.label }}<span class="stat-en">{{ s.label_en }}</span></dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+
+<!-- ══════════ 01 教育背景 ══════════ -->
+<section class="sec reveal" id="education">
+  <header class="sec-head">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">教育背景</h2>
+    <span class="sec-en">EDUCATION</span>
+  </header>
+
+  <ol class="timeline">
+    {% for edu in site.data.education %}
+    <li class="tl">
+      <p class="tl-date">{{ edu.period }}</p>
+      <div class="tl-body">
+        <h3 class="tl-title">{{ edu.school }}<span class="tl-tag">{{ edu.degree }} · {{ edu.major }}</span></h3>
+        <p class="tl-meta">{{ edu.school_en }} · {{ edu.note }}</p>
+        <ul class="chips">
+          {% for c in edu.courses %}<li class="chip">{{ c }}</li>{% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- ══════════ 02 工作经历 ══════════ -->
+<section class="sec reveal" id="experience">
+  <header class="sec-head">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">工作经历</h2>
+    <span class="sec-en">EXPERIENCE</span>
+  </header>
+
+  <ol class="timeline">
+    {% for job in site.data.experience %}
+    <li class="tl">
+      <p class="tl-date">{{ job.period }}</p>
+      <div class="tl-body">
+        <p class="tl-kicker">{{ job.org_en }}<span class="dot-sep"></span>{{ job.kind }}</p>
+        <h3 class="tl-title">{{ job.org }}</h3>
+        <p class="tl-role">{{ job.role }}</p>
+        <p class="tl-text">{{ job.summary }}</p>
+
+        {% if job.metrics %}
+        <dl class="kv">
+          {% for m in job.metrics %}
+          <div class="kv-item">
+            <dt class="kv-v">{{ m.value }}</dt>
+            <dd class="kv-k">{{ m.note }}</dd>
+          </div>
+          {% endfor %}
+        </dl>
+        {% endif %}
+
+        {% if job.bullets %}
+        <ul class="bullets">
+          {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if job.subprojects %}
+        <ol class="subs">
+          {% for sp in job.subprojects %}
+          <li class="sub">
+            <h4 class="sub-title"><span class="sub-idx">0{{ forloop.index }}</span>{{ sp.title }}</h4>
+            <p class="sub-desc">{{ sp.desc }}</p>
+            <dl class="kv kv-sm">
+              {% for m in sp.metrics %}
+              <div class="kv-item">
+                <dt class="kv-v">{{ m.value }}</dt>
+                <dd class="kv-k">{{ m.note }}</dd>
+              </div>
+              {% endfor %}
+            </dl>
+            <ul class="chips">
+              {% for t in sp.stack %}<li class="chip">{{ t }}</li>{% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+
+        {% if job.stack %}
+        <ul class="chips chips-tech">
+          {% for t in job.stack %}<li class="chip">{{ t }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- ══════════ 03 项目实践 ══════════ -->
+<section class="sec reveal" id="projects">
+  <header class="sec-head">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">项目实践</h2>
+    <span class="sec-en">RESEARCH PROJECTS</span>
+  </header>
+
+  <div class="cards">
+    {% for p in site.data.projects %}
+    <article class="card">
+      <p class="card-kicker">{{ p.period }}<span class="dot-sep"></span>{{ p.fund }}</p>
+      <h3 class="card-title">{{ p.title }}</h3>
+      <p class="card-role">{{ p.role }}</p>
+      <p class="card-text">{{ p.desc }}</p>
+      <ul class="chips">
+        {% for t in p.stack %}<li class="chip">{{ t }}</li>{% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ══════════ 04 学术成果 ══════════ -->
+<section class="sec reveal" id="publications">
+  <header class="sec-head">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">学术成果</h2>
+    <span class="sec-en">PUBLICATIONS</span>
+  </header>
+
+  <p class="sec-lead">
+    两篇工作都围绕同一个问题：<em>训练时的分布，和部署时的分布不一致</em>。
+    一篇用「域不变的边缘」做单源域泛化，一篇用「影像增广 + 风格迁移 + 在线更新」覆盖复合与开放目标域。
+  </p>
+
+  {% for pub in site.data.publications %}
+  <article class="pub">
+    <header class="pub-head">
+      <p class="pub-meta">
+        <span class="pub-venue">{{ pub.venue }}</span>
+        <span class="badge badge-{{ pub.key }}">{{ pub.status }}</span>
+      </p>
+      <h3 class="pub-title">{{ pub.title }}</h3>
+      <p class="pub-authors">
+        {% assign author_list = pub.authors | split: ', ' %}<span class="author-me">{{ author_list | first }}</span>{% for a in author_list offset: 1 %}, {{ a }}{% endfor %}
+      </p>
+    </header>
+
+    <div class="pub-figs">
+      {% for fig in pub.figures %}
+      <figure class="pub-fig">
+        <div class="plate">
+          <img src="{{ site.baseurl }}{{ fig.image }}" alt="{{ fig.alt }}" loading="lazy">
+        </div>
+        <figcaption class="plate-cap">{{ fig.label }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+
+    <p class="pub-teaser">{{ pub.teaser }}</p>
+    <ul class="chips">
+      {% for t in pub.tags %}<li class="chip">{{ t }}</li>{% endfor %}
+    </ul>
+    <p class="pub-links">
+      {% for link in pub.links %}
+      {% if link.external %}
+      <a class="link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+      {% else %}
+      <a class="link" href="{{ site.baseurl }}{{ link.url }}">{{ link.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </p>
+  </article>
+  {% endfor %}
+</section>
+
+<!-- ══════════ 05 专利与软著 ══════════ -->
+<section class="sec reveal" id="patents">
+  <header class="sec-head">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">专利与软件著作权</h2>
+    <span class="sec-en">PATENTS &amp; COPYRIGHTS</span>
+  </header>
+
+  <div class="duo">
+    <article class="card">
+      <h3 class="card-head">发明专利<span class="card-count">{{ site.data.patents.size }} 项</span></h3>
+      <ul class="rec">
+        {% for p in site.data.patents %}
+        <li class="rec-row">
+          <span class="rec-title">{{ p.title }}</span>
+          <span class="rec-inventors">{% assign inv_list = p.inventors | split: ', ' %}{% for a in inv_list %}{% if a == site.data.profile.name %}<span class="author-me">{{ a }}</span>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
+          <span class="rec-sub"><span class="mono">{{ p.number }}</span><span class="dot-sep"></span>{{ p.date }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3 class="card-head">软件著作权<span class="card-count">{{ site.data.copyrights.size }} 项</span></h3>
+      <ul class="rec">
+        {% for c in site.data.copyrights %}
+        <li class="rec-row">
+          <span class="rec-title">{{ c.title }}</span>
+          <span class="rec-inventors">{% assign inv_list = c.inventors | split: ', ' %}{% for a in inv_list %}{% if a == site.data.profile.name %}<span class="author-me">{{ a }}</span>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
+          <span class="rec-sub"><span class="mono">{{ c.number }}</span><span class="dot-sep"></span>{{ c.date }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ 06 所获荣誉 ══════════ -->
+<section class="sec reveal" id="honors">
+  <header class="sec-head">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title">所获荣誉</h2>
+    <span class="sec-en">HONORS</span>
+  </header>
+
+  <ul class="honors">
+    {% for h in site.data.honors %}
+    <li class="honor">
+      <p class="honor-year">{{ h.year }}</p>
+      <div class="honor-body">
+        <h3 class="honor-title">{{ h.title }}<span class="honor-award">{{ h.award }}</span></h3>
+        <p class="honor-meta"><span class="rank">{{ h.rank }}</span><span class="dot-sep"></span>{{ h.role }}</p>
+        <details class="fold">
+          <summary>查看参赛细节</summary>
+          <p>{{ h.detail }}</p>
+        </details>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- ══════════ 07 专业技能 ══════════ -->
+<section class="sec reveal" id="skills">
+  <header class="sec-head">
+    <span class="sec-num">07</span>
+    <h2 class="sec-title">专业技能</h2>
+    <span class="sec-en">SKILLS</span>
+  </header>
+
+  <div class="skills">
+    {% for g in site.data.skills %}
+    <div class="skill-group">
+      <h3 class="skill-head"><span class="skill-zh">{{ g.group }}</span><span class="skill-en">{{ g.group_en }}</span></h3>
+      <ul class="chips">
+        {% for item in g.items %}<li class="chip">{{ item }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>

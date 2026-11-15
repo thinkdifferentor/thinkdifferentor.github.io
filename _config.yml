@@ -1,0 +1,34 @@
+# ══════════════════════════════════════════════════════════════
+#  个人主页 · Jekyll Resume
+#  部署到 https://<username>.github.io 时，下面的 url / baseurl 保持为空即可。
+#  若部署到 https://<username>.github.io/<repo>，把 baseurl 改成 "/<repo>"。
+# ══════════════════════════════════════════════════════════════
+
+title: Jun Jiang · AI 算法工程师
+description: >-
+  Jun Jiang 的个人主页 —— AI 算法工程师，计算机技术硕士。研究聚焦医学图像分割中的单源域泛化与开放复合域自适应，
+  工程聚焦医学影像、工业质检与材料配方中的深度学习与大模型落地。
+
+author: Jun Jiang
+email: junjiang.steve@gmail.com
+github: thinkdifferentor
+
+url: ""
+baseurl: ""
+lang: zh-CN
+timezone: Asia/Shanghai
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - .preview
+  # 原始素材，不参与构建
+  - home_page.md
+  - 313.pdf
+  - MICCAI_24_OCDA_for_MIS.pdf
