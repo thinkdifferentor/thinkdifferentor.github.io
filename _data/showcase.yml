@@ -1,0 +1,63 @@
+# 08 项目展示：可运行的 AI 工程项目
+- idx: "01"
+  kind: Engine · AI4Science
+  year: "2026"
+  title: FormOptiEngine · 配方设计与工艺优化引擎
+  sub: 从原始实验表到推荐配方的一体化引擎：清洗、增广、AutoML、推理、多算法寻优与可解释性。
+  figures:
+    - image: /assets/img/projects/formopti-pipeline.svg
+      wide: true
+      label: 流水线 · 数据到配方推荐
+      alt: FormOptiEngine 流水线图：数据加载、清洗、增强、模型训练、模型推理、配方优化六个步骤，配套 SHAP 归因与数据分析，并由 Dash 前端串联四页
+    - image: /assets/img/projects/formopti-ui.svg
+      wide: true
+      ui: true
+      label: 主页面 · 数据管理（界面复刻）
+      alt: FormOptiEngine 数据管理页界面：顶部导航四个页面、状态条显示数据行数 480 与特征数 12、加载数据表单与当前数据集表格
+  points:
+    - "<b>数据到模型的完整管线</b>：同构 / 异构多源接入，异常、空值、重复样本剔除与强相关特征剪枝；物理约束下的加噪（配方总和恒为 100%、工艺参数落在合理区间）、曲线插值与安全外推。"
+    - "<b>AutoML 与表格基座模型</b>：AutoGluon、Optuna 调参、TabPFN / TabICL 三条建模路线并存，支持训练可视化与早停；推理输出均值 / 方差（回归）或置信度（分类）。"
+    - "<b>六种全局优化 + 可解释性</b>：贝叶斯、遗传、粒子群、差分进化、模拟退火、引力搜索按离散 / 连续、维度与样本量选型；SHAP 归因与 T-SNE / UMAP 分析形成闭环，Dash 前端串起数据-模型-优化-分析四页。"
+  stack: [Python, AutoGluon, Optuna, TabPFN / TabICL, SHAP, Dash, SciPy]
+
+- idx: "02"
+  kind: Pipeline · 文档智能
+  year: "2026"
+  title: 体检报告筛查工作台
+  sub: 模型只负责抽字段，异常 / 正常 / 缺项 / 识别失败 的最终结论由本地规则裁决。
+  figures:
+    - image: /assets/img/projects/ai-report-pipeline.svg
+      wide: true
+      label: 识别流水线 · 双路径 / 本地裁决
+      alt: 体检报告识别流水线图：报告文件分为多模态与 MinerU 两条识别路径，输出结构化 JSON 后经本地规则复核，得到四态结论并导出看板与 Excel
+    - image: /assets/img/projects/ai-report-ui.svg
+      wide: true
+      ui: true
+      label: 主页面 · 筛查结果与体检结论（界面复刻）
+      alt: 体检报告筛查工作台界面：深蓝顶栏与批量识别面板、五项状态统计卡，下方筛查结果表格列出异常、正常、缺项与识别失败四种状态及对应体检结论
+  points:
+    - "<b>两条互不替代的识别路径</b>：有可靠文本层的 PDF 走分页文本，扫描件渲染成压缩页面图像，图片直接送视觉模型；另一条先用 MinerU 抽 Markdown，剔除身份证号与电话后再交给大模型结构化。"
+    - "<b>规则双轨、代码裁决</b>：rules.md 进提示词（56 项识别字段、23 条异常规则覆盖 26 个字段），阈值与缺项清洗硬编码在 business_rules.py，最终状态只认本地复核，避免模型自由改写四态定义。"
+    - "<b>批量作业与可观测性</b>：多文件 / 文件夹导入形成队列，逐份落盘、可取消、可加载历史批次；每份报告带 trace_id 串联上传 → 解析 → 渲染 → 模型 → 复核，慢阶段自动告警，导出 Excel 含体检结论列。"
+  stack: [Python, 百炼多模态 API, MinerU, 规则引擎, Web UI, Excel 导出]
+
+- idx: "03"
+  kind: Agent · 数据分析
+  year: "2026"
+  title: XynA Lab · 生物实验数据分析 Agent
+  sub: 自然语言问数 → 规则路由优先、模型兜底 → 真实 SciPy 拟合与图表，全部跑在本地只读数据库上。
+  figures:
+    - image: /assets/img/projects/xyna-agent-flow.svg
+      wide: true
+      label: Agent 执行逻辑 · 路由 / 直连 / 模型循环
+      alt: XynA Lab Agent 执行逻辑图：START 进入 route 做整句规则匹配与槽位提取，唯一命中则 direct_tool 直连业务函数并结束；未命中去 prepare_model 构建提示后调用 model，必要时循环调用 tools，正常完成、预算耗尽、失败与取消都收敛到 END
+    - image: /assets/img/projects/xyna-ui.svg
+      wide: true
+      ui: true
+      label: 主页面 · 研究工作台与执行过程（界面复刻）
+      alt: XynA Lab 工作台界面：顶部品牌与新建会话、实验数据四项概览、左侧研究对话与六个示例问题、右侧执行过程与已连接数据表
+  points:
+    - "<b>双路由 Agent</b>：LangGraph 编译图编排 route → direct_tool 或 prepare_model → model → tools；整句命中业务规则时直接执行并返回，LLM 调用次数为 0，未命中才进入模型与工具调用。"
+    - "<b>真实计算而非文字作答</b>：OD 曲线使用校正后的 od600，Logistic 在独立进程里跑 pandas / SciPy，返回 K、μmax、t0、R² 与 PNG；比活按「酶活峰值点 ÷ 最近蛋白浓度」计算并给出时间差。"
+    - "<b>可插拔工具 + 流式前端</b>：ToolRegistry 注册 8 个具名业务工具与 SQL / schema / 绘图 / Python 底层工具，新增能力不改图结构；SSE over fetch POST 推流 token 与产物，原生前端无构建、无 CDN。"
+  stack: [LangGraph, FastAPI, SSE, SQLite, pandas / SciPy, 原生 SVG 前端]

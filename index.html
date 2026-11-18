@@ -288,3 +288,50 @@ description: Jun Jiang —— AI 算法工程师，计算机技术硕士。研�
     {% endfor %}
   </div>
 </section>
+
+<!-- ══════════ 08 项目展示 ══════════ -->
+<section class="sec reveal" id="showcase">
+  <header class="sec-head">
+    <span class="sec-num">08</span>
+    <h2 class="sec-title">项目展示</h2>
+    <span class="sec-en">SHOWCASE</span>
+  </header>
+
+  <p class="sec-lead">
+    三个可以本地跑起来的工程项目：一个配方优化引擎、一个体检报告筛查工作台、一个问数 Agent。
+    共同点是<b>把模型放在该在的位置</b>——能算的交给代码，需要理解才交给模型。
+  </p>
+
+  {% for p in site.data.showcase %}
+  <article class="showcase">
+    <header class="showcase-head">
+      <p class="showcase-meta">
+        <span class="showcase-idx">{{ p.idx }}</span>
+        <span class="showcase-kind">{{ p.kind }}</span>
+        <span class="showcase-year">{{ p.year }}</span>
+      </p>
+      <h3 class="showcase-title">{{ p.title }}</h3>
+      <p class="showcase-sub">{{ p.sub }}</p>
+    </header>
+
+    <div class="showcase-figs{% if p.figures.size > 1 %} showcase-figs--multi{% endif %}">
+      {% for f in p.figures %}
+      <figure class="showcase-fig{% if f.wide %} showcase-fig--wide{% endif %}{% if f.ui %} showcase-fig--ui{% endif %}">
+        <div class="plate">
+          <img src="{{ site.baseurl }}{{ f.image }}" alt="{{ f.alt }}" loading="lazy">
+        </div>
+        <figcaption class="plate-cap">{{ f.label }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+
+    <ul class="showcase-points">
+      {% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}
+    </ul>
+
+    <ul class="chips">
+      {% for s in p.stack %}<li class="chip">{{ s }}</li>{% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+</section>

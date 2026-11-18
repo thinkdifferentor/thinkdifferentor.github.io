@@ -201,16 +201,33 @@
     updateActive();
   }
 
-  /* ── 平滑滚动（带固定栏补偿） ─────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  /* ── 锚点导航 ─────────────────────────────────────────────── */
+  function scrollToSection(id, smooth) {
+    var target = document.getElementById(id);
+    if (!target) return false;
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    return true;
+  }
+
+  document.querySelectorAll('a[href*="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href').slice(1);
+      var href = a.getAttribute('href') || '';
+      var cut = href.indexOf('#');
+      if (cut < 0) return;
+      var id = href.slice(cut + 1);
       if (!id) return;
-      var target = document.getElementById(id);
-      if (!target) return;
+      // 目标不在本页（例如在论文页点首页锚点）→ 交给浏览器跳转
+      if (!document.getElementById(id)) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-      history.replaceState(null, '', '#' + id);
+      scrollToSection(id, !reduced);
+      try { history.replaceState(null, '', '#' + id); } catch (err) {}
     });
+  });
+
+  // 直接带 #hash 打开页面时，等图片/字体布局稳定后校正一次位置
+  window.addEventListener('load', function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    setTimeout(function () { scrollToSection(id, false); }, 80);
   });
 })();

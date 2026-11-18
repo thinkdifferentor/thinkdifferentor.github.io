@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="体检报告识别流水线：报告文件经两条识别路径抽成结构化 JSON，再由本地规则复核，输出四态结论与导出">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa4ae"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #d5dbe2; stroke-width: 1.2; }
+      .t   { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 16px; font-weight: 600; fill: #1d2329; }
+      .s   { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; fill: #6b747c; }
+      .n   { font-family: "JetBrains Mono","Consolas",monospace; font-size: 11px; fill: #0d8a68; letter-spacing: .08em; }
+      .l   { stroke: #9aa4ae; stroke-width: 1.2; fill: none; marker-end: url(#ar); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="480" fill="#ffffff"/>
+
+  <!-- 1 报告文件 -->
+  <text class="n" x="22" y="196">01 INPUT</text>
+  <rect class="box" x="20" y="205" width="180" height="80" rx="8"/>
+  <text class="t" x="36" y="238">报告文件</text>
+  <text class="s" x="36" y="260">PDF · 扫描件 · 图片</text>
+
+  <!-- 2 两条路径 -->
+  <text class="n" x="252" y="96">02 EXTRACT</text>
+  <rect class="box" x="250" y="105" width="210" height="86" rx="8"/>
+  <text class="t" x="266" y="136">路径 A · 多模态</text>
+  <text class="s" x="266" y="158">有文本层走分页文本</text>
+  <text class="s" x="266" y="176">扫描件渲染页面图像</text>
+
+  <rect class="box" x="250" y="290" width="210" height="86" rx="8"/>
+  <text class="t" x="266" y="321">路径 B · MinerU</text>
+  <text class="s" x="266" y="343">抽 Markdown → 脱敏</text>
+  <text class="s" x="266" y="361">身份证 / 电话 → 结构化</text>
+
+  <!-- 3 结构化 -->
+  <text class="n" x="490" y="196">03 STRUCTURE</text>
+  <rect class="box" x="488" y="205" width="180" height="80" rx="8"/>
+  <text class="t" x="504" y="238">结构化字段</text>
+  <text class="s" x="504" y="260">extract_json · normalized</text>
+
+  <!-- 4 规则复核 -->
+  <text class="n" x="712" y="160">04 LOCAL RULES</text>
+  <rect class="box" x="710" y="169" width="210" height="150" rx="8" stroke="#0d8a68" stroke-opacity="0.45"/>
+  <text class="t" x="726" y="200">本地规则复核</text>
+  <text class="s" x="726" y="224">56 项识别字段</text>
+  <text class="s" x="726" y="244">23 条异常规则 / 26 字段</text>
+  <text class="s" x="726" y="270">缺项清洗 · 阈值裁决</text>
+  <text class="s" x="726" y="290">模型不改写结论</text>
+
+  <!-- 5 输出 -->
+  <text class="n" x="946" y="96">05 VERDICT</text>
+  <rect class="box" x="944" y="105" width="220" height="86" rx="8"/>
+  <text class="t" x="960" y="136">四态判定</text>
+  <text class="s" x="960" y="158">异常 · 正常 · 缺项</text>
+  <text class="s" x="960" y="176">识别失败 + 体检结论</text>
+
+  <rect class="box" x="944" y="290" width="220" height="86" rx="8"/>
+  <text class="t" x="960" y="321">看板 / Excel</text>
+  <text class="s" x="960" y="343">批次历史 · 状态筛选</text>
+  <text class="s" x="960" y="361">体检结论列导出</text>
+
+  <!-- 连线 -->
+  <path class="l" d="M200 245 H225 V148 H246"/>
+  <path class="l" d="M200 245 H225 V333 H246"/>
+  <path class="l" d="M460 148 H474 V245 H484"/>
+  <path class="l" d="M460 333 H474 V245 H484"/>
+  <path class="l" d="M668 245 H706"/>
+  <path class="l" d="M920 205 H932 V148 H940"/>
+  <path class="l" d="M920 285 H932 V333 H940"/>
+  <path class="l" d="M1054 191 V286"/>
+</svg>

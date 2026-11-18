@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="XynA Lab Agent 执行逻辑图：START 进入 route 做规则匹配，命中则 direct_tool 直连业务函数并结束；未命中则 prepare_model 构建提示后调用 model，必要时循环调用 tools，最终或失败都回到 END">
+  <defs>
+    <marker id="ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa4ae"/>
+    </marker>
+    <style>
+      .box  { fill: #ffffff; stroke: #d5dbe2; stroke-width: 1.2; }
+      .dec  { fill: #fbfdfb; stroke: #0d8a68; stroke-opacity: .5; stroke-width: 1.2; }
+      .term { fill: #f6f7f5; stroke: #cfd6dd; stroke-width: 1.2; }
+      .t    { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 15px; font-weight: 600; fill: #1d2329; }
+      .s    { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11.5px; fill: #6b747c; }
+      .e    { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11px; fill: #8b949d; }
+      .n    { font-family: "JetBrains Mono","Consolas",monospace; font-size: 11px; fill: #0d8a68; letter-spacing: .1em; }
+      .l    { stroke: #9aa4ae; stroke-width: 1.2; fill: none; marker-end: url(#ar4); }
+      .ld   { stroke: #b8c0c8; stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; marker-end: url(#ar4); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <!-- START -->
+  <rect class="term" x="24" y="240" width="80" height="48" rx="24"/>
+  <text class="n" x="64" y="269" text-anchor="middle">START</text>
+
+  <!-- route -->
+  <rect class="dec" x="140" y="224" width="180" height="80" rx="8"/>
+  <text class="t" x="156" y="252">route</text>
+  <text class="s" x="156" y="274">整句规则匹配</text>
+  <text class="s" x="156" y="292">槽位参数提取</text>
+
+  <!-- direct_tool -->
+  <rect class="box" x="380" y="60" width="190" height="90" rx="8"/>
+  <text class="t" x="396" y="88">direct_tool</text>
+  <text class="s" x="396" y="110">经注册表调用业务函数</text>
+  <text class="s" x="396" y="128">零 LLM 调用</text>
+
+  <!-- prepare_model -->
+  <rect class="box" x="380" y="300" width="190" height="90" rx="8"/>
+  <text class="t" x="396" y="328">prepare_model</text>
+  <text class="s" x="396" y="350">构建 schema 与历史</text>
+  <text class="s" x="396" y="368">拼接提示词</text>
+
+  <!-- model -->
+  <rect class="box" x="630" y="300" width="190" height="90" rx="8"/>
+  <text class="t" x="646" y="328">model</text>
+  <text class="s" x="646" y="350">流式输出 + tool_calls</text>
+  <text class="s" x="646" y="368">受步数与 token 预算约束</text>
+
+  <!-- tools -->
+  <rect class="box" x="630" y="430" width="190" height="90" rx="8"/>
+  <text class="t" x="646" y="458">tools</text>
+  <text class="s" x="646" y="480">Pydantic 校验参数</text>
+  <text class="s" x="646" y="498">按序执行并回传结果</text>
+
+  <!-- END -->
+  <rect class="term" x="1030" y="210" width="140" height="90" rx="45"/>
+  <text class="n" x="1100" y="260" text-anchor="middle">END</text>
+
+  <!-- 连线 -->
+  <path class="l" d="M104 264 H136"/>
+
+  <path class="l" d="M320 240 H350 V105 H376"/>
+  <text class="e" x="330" y="180">唯一命中</text>
+
+  <path class="l" d="M320 288 H350 V345 H376"/>
+  <text class="e" x="200" y="332">未命中 / 有歧义 / 已禁用</text>
+
+  <path class="l" d="M570 105 H1000 V228 H1026"/>
+  <text class="e" x="640" y="97">完成或明确失败</text>
+
+  <path class="l" d="M570 345 H626"/>
+
+  <path class="l" d="M700 390 V426"/>
+  <path class="l" d="M760 430 V394"/>
+  <text class="e" x="786" y="414">tool call / 结果回传（未超预算）</text>
+
+  <path class="l" d="M820 345 H980 V252 H1026"/>
+  <text class="e" x="830" y="337">最终回答 / 预算耗尽</text>
+
+  <path class="ld" d="M820 470 H1060 V306"/>
+  <text class="e" x="860" y="462">不可重试 / 连续失败达上限</text>
+
+  <text class="e" x="24" y="548">命中规则的请求不进入模型节点；重试耗尽、异常与取消同样收敛到 END。</text>
+</svg>

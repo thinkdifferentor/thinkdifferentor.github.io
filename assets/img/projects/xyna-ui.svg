@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" role="img" aria-label="XynA Lab 工作台界面：顶部品牌与操作、实验数据概览四张指标卡、左侧研究对话与示例问题、右侧执行过程与已连接数据表">
+  <defs>
+    <style>
+      .page   { fill: #f6f7fb; }
+      .surface{ fill: #ffffff; stroke: #e6e7ee; stroke-width: 1; }
+      .card   { fill: #ffffff; stroke: #e9eaf1; stroke-width: 1; }
+      .ink    { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; }
+      .b      { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-weight: 650; fill: #252936; }
+      .m      { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; fill: #9195a5; }
+      .p      { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; fill: #7562d4; }
+      .mono   { font-family: "JetBrains Mono","Consolas",monospace; }
+      .btnp   { fill: #7562d4; }
+      .btng   { fill: #ffffff; stroke: #e4e2f0; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect class="page" width="1240" height="900"/>
+
+  <!-- 顶栏 -->
+  <rect x="0" y="0" width="1240" height="76" fill="#ffffff"/>
+  <line x1="0" y1="76" x2="1240" y2="76" stroke="#e9eaf1"/>
+
+  <rect x="50" y="20" width="36" height="36" rx="10" fill="#7763d5"/>
+  <text x="66" y="45" text-anchor="middle" font-family="Inter,sans-serif" font-size="19" font-weight="650" fill="#ffffff">x</text>
+  <text x="73" y="45" font-family="Inter,sans-serif" font-size="19" font-weight="650" fill="#d0ebdb">y</text>
+
+  <text class="b" x="98" y="45" font-size="17">XynA <tspan fill="#9195a5" font-weight="400">Lab</tspan></text>
+  <line x1="196" y1="27" x2="196" y2="49" stroke="#e4e2ec"/>
+  <text class="m" x="210" y="44" font-size="12.5">实验数据分析工作台</text>
+
+  <circle cx="820" cy="38" r="4" fill="#68b294"/>
+  <text class="m" x="832" y="43" font-size="12.5">正在连接</text>
+  <rect class="btng" x="906" y="24" width="104" height="30" rx="8"/>
+  <text class="b" x="958" y="44" font-size="12.5" text-anchor="middle">数据字典 ↗</text>
+  <rect class="btnp" x="1024" y="24" width="116" height="30" rx="8"/>
+  <text x="1082" y="44" font-size="12.5" font-weight="600" text-anchor="middle" fill="#ffffff">＋ 新建会话</text>
+
+  <!-- 标题区 -->
+  <rect x="50" y="92" width="8" height="8" fill="#7562d4"/>
+  <text class="m" x="66" y="100" font-size="9.5" letter-spacing="1.6">RESEARCH WORKSPACE  /  XynA EXPRESSION</text>
+  <text class="b" x="50" y="140" font-size="27" letter-spacing="-0.4">从实验数据，到研究洞见<tspan fill="#7562d4">.</tspan></text>
+  <text class="m" x="50" y="164" font-size="12.5">用自然语言探索木聚糖酶表达实验，每一步分析都有据可循。</text>
+
+  <rect class="card" x="880" y="100" width="310" height="68" rx="12"/>
+  <text x="898" y="128" font-size="15" fill="#7562d4">▤</text>
+  <text class="b" x="922" y="124" font-size="12.5">bio_experiment.db</text>
+  <circle cx="927" cy="140" r="2.5" fill="#68b294"/>
+  <text class="m" x="936" y="144" font-size="10.5">SQLite · 只读连接</text>
+  <rect x="1096" y="118" width="52" height="20" rx="5" fill="#f2f0fb"/>
+  <text x="1122" y="132" font-size="9" text-anchor="middle" font-family="JetBrains Mono,monospace" fill="#7562d4" letter-spacing="0.8">LOCAL</text>
+
+  <!-- 指标卡 -->
+  <rect class="card" x="50" y="186" width="277" height="87" rx="11"/>
+  <rect x="68" y="208" width="37" height="37" rx="10" fill="#ece7fb"/>
+  <text x="86" y="234" text-anchor="middle" font-size="19" fill="#7562d4">◈</text>
+  <text class="m" x="118" y="216" font-size="11.5">实验分组</text>
+  <text class="b" x="118" y="242" font-size="22">8</text>
+  <text class="m" x="118" y="258" font-size="10">多条件对照</text>
+
+  <rect class="card" x="342" y="186" width="277" height="87" rx="11"/>
+  <rect x="360" y="208" width="37" height="37" rx="10" fill="#e7effb"/>
+  <text x="378" y="234" text-anchor="middle" font-size="19" fill="#4479b8">▦</text>
+  <text class="m" x="410" y="216" font-size="11.5">关联数据表</text>
+  <text class="b" x="410" y="242" font-size="22">7</text>
+  <text class="m" x="410" y="258" font-size="10">完整实验链路</text>
+
+  <rect class="card" x="634" y="186" width="277" height="87" rx="11"/>
+  <rect x="652" y="208" width="37" height="37" rx="10" fill="#e6f2ec"/>
+  <text x="670" y="234" text-anchor="middle" font-size="19" fill="#499d80">≋</text>
+  <text class="m" x="702" y="216" font-size="11.5">实验记录</text>
+  <text class="b" x="702" y="242" font-size="22">192</text>
+  <text class="m" x="702" y="258" font-size="10">可追溯的数据源</text>
+
+  <rect class="card" x="926" y="186" width="264" height="87" rx="11"/>
+  <rect x="944" y="208" width="37" height="37" rx="10" fill="#fbf1e0"/>
+  <text x="962" y="234" text-anchor="middle" font-size="19" fill="#b98a3a">✧</text>
+  <text class="m" x="994" y="216" font-size="11.5">分析引擎</text>
+  <text class="b" x="994" y="242" font-size="15">统一 Agent</text>
+  <text class="m" x="994" y="258" font-size="10">deepseek-flash</text>
+
+  <!-- 左：研究对话 -->
+  <rect class="surface" x="50" y="296" width="740" height="556" rx="13"/>
+  <text x="76" y="332" font-size="13" fill="#7562d4">✧</text>
+  <text class="b" x="94" y="334" font-size="14">研究对话</text>
+  <rect x="166" y="320" width="38" height="18" rx="5" fill="#f3f1fb"/>
+  <text x="185" y="333" font-size="9" text-anchor="middle" class="m">Chat</text>
+  <text class="m" x="740" y="334" font-size="11">新会话</text>
+  <line x1="50" y1="358" x2="790" y2="358" stroke="#edeef4"/>
+
+  <rect x="389" y="380" width="62" height="62" rx="18" fill="#f7f4ff" stroke="#e9e3f6"/>
+  <path d="M411 396h18M414 396v14l-8 15a2 2 0 0 0 1.8 3h24a2 2 0 0 0 1.8-3l-8-15v-14" fill="none" stroke="#7562d4" stroke-width="1.8" stroke-linecap="round"/>
+
+  <text x="420" y="470" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" letter-spacing="1.8" fill="#b3b0bf">YOUR RESEARCH COMPANION</text>
+  <text class="b" x="420" y="496" text-anchor="middle" font-size="19">今天，想探索什么？</text>
+  <text class="m" x="420" y="516" text-anchor="middle" font-size="11.5">查询实验、比较条件，或让数据变成一张图。</text>
+  <text class="m" x="420" y="532" text-anchor="middle" font-size="11.5">从下面的问题开始，也可以直接提出你的想法。</text>
+
+  <!-- 建议卡 1 -->
+  <rect class="card" x="76" y="550" width="320" height="56" rx="9"/>
+  <rect x="88" y="564" width="29" height="29" rx="8" fill="#ece7fb"/>
+  <text x="102" y="584" text-anchor="middle" font-size="14" fill="#7562d4">▥</text>
+  <text class="b" x="127" y="572" font-size="11.5">找到酶活最高的实验</text>
+  <text class="m" x="127" y="588" font-size="10">统计各实验峰值并排序</text>
+  <text class="m" x="378" y="584" font-size="11">↗</text>
+
+  <!-- 建议卡 2 -->
+  <rect class="card" x="406" y="550" width="320" height="56" rx="9"/>
+  <rect x="418" y="564" width="29" height="29" rx="8" fill="#e6f2ec"/>
+  <text x="432" y="584" text-anchor="middle" font-size="14" fill="#499d80">⌁</text>
+  <text class="b" x="457" y="572" font-size="11.5">观察菌体生长过程</text>
+  <text class="m" x="457" y="588" font-size="10">绘制 EXP001 的 OD600 曲线</text>
+  <text class="m" x="708" y="584" font-size="11">↗</text>
+
+  <!-- 建议卡 3 -->
+  <rect class="card" x="76" y="614" width="320" height="56" rx="9"/>
+  <rect x="88" y="628" width="29" height="29" rx="8" fill="#e7effb"/>
+  <text x="102" y="648" text-anchor="middle" font-size="14" fill="#4479b8">⇄</text>
+  <text class="b" x="127" y="636" font-size="11.5">比较不同诱导温度</text>
+  <text class="m" x="127" y="652" font-size="10">25℃ 与 37℃ 的酶活对比</text>
+  <text class="m" x="378" y="648" font-size="11">↗</text>
+
+  <!-- 建议卡 4 -->
+  <rect class="card" x="406" y="614" width="320" height="56" rx="9"/>
+  <rect x="418" y="628" width="29" height="29" rx="8" fill="#fbf1e0"/>
+  <text x="432" y="648" text-anchor="middle" font-size="14" fill="#b98a3a">ƒ</text>
+  <text class="b" x="457" y="636" font-size="11.5">分析蛋白比活</text>
+  <text class="m" x="457" y="652" font-size="10">跨表计算与最近时间点匹配</text>
+  <text class="m" x="708" y="648" font-size="11">↗</text>
+
+  <!-- 建议卡 5 -->
+  <rect class="card" x="76" y="678" width="320" height="56" rx="9"/>
+  <rect x="88" y="692" width="29" height="29" rx="8" fill="#e6f2ec"/>
+  <text x="102" y="712" text-anchor="middle" font-size="14" fill="#499d80">◎</text>
+  <text class="b" x="127" y="700" font-size="11.5">检查阴性对照</text>
+  <text class="m" x="127" y="716" font-size="10">区分背景读数与零酶活</text>
+  <text class="m" x="378" y="712" font-size="11">↗</text>
+
+  <!-- 建议卡 6 -->
+  <rect class="card" x="406" y="678" width="320" height="56" rx="9"/>
+  <rect x="418" y="692" width="29" height="29" rx="8" fill="#ece7fb"/>
+  <text x="432" y="712" text-anchor="middle" font-size="14" fill="#7562d4">∿</text>
+  <text class="b" x="457" y="700" font-size="11.5">拟合生长动力学</text>
+  <text class="m" x="457" y="716" font-size="10">隔离执行 Python · Logistic 拟合</text>
+  <text class="m" x="708" y="712" font-size="11">↗</text>
+
+  <!-- 输入框 -->
+  <rect x="76" y="748" width="688" height="54" rx="11" fill="#fefeff" stroke="#dcd8eb"/>
+  <text class="m" x="92" y="771" font-size="11.5">询问实验数据，或继续追问…</text>
+  <circle cx="88" cy="790" r="3" fill="#68b294"/>
+  <text class="m" x="96" y="794" font-size="10">已连接实验数据库</text>
+  <text class="m" x="196" y="794" font-size="10">· Shift + Enter 换行</text>
+  <rect x="722" y="778" width="33" height="31" rx="8" fill="#7d6bd6"/>
+  <text x="738" y="800" text-anchor="middle" font-size="15" fill="#ffffff">↑</text>
+  <text class="m" x="76" y="822" font-size="9.5">结论基于实验记录生成，请结合实验背景与方法判断。</text>
+
+  <!-- 右：执行过程 -->
+  <rect class="surface" x="810" y="296" width="380" height="556" rx="13"/>
+  <text x="836" y="332" font-size="13" fill="#7562d4">⌘</text>
+  <text class="b" x="854" y="334" font-size="14">执行过程</text>
+  <rect x="920" y="320" width="20" height="18" rx="5" fill="#f3f1fb"/>
+  <text x="930" y="333" font-size="9" text-anchor="middle" class="m">0</text>
+  <text class="m" x="1164" y="334" font-size="10.5" text-anchor="end">等待提问</text>
+  <line x1="810" y1="358" x2="1190" y2="358" stroke="#edeef4"/>
+
+  <text x="910" y="410" font-size="14" fill="#c9c3dd">✧</text>
+  <text class="m" x="936" y="410" font-size="11">···</text>
+  <text x="966" y="410" font-size="14" fill="#c9c3dd">⌘</text>
+  <text class="m" x="992" y="410" font-size="11">···</text>
+  <text x="1022" y="410" font-size="14" fill="#c9c3dd">▥</text>
+
+  <text class="b" x="1000" y="446" text-anchor="middle" font-size="15">看见分析的每一步</text>
+  <text class="m" x="1000" y="468" text-anchor="middle" font-size="10.5">生成的 SQL、Python 代码与执行结果</text>
+  <text class="m" x="1000" y="484" text-anchor="middle" font-size="10.5">会在这里实时展示。</text>
+
+  <text class="m" x="868" y="516" font-size="8.5"><tspan fill="#bbb4cb">01</tspan> 理解问题</text>
+  <text class="m" x="952" y="516" font-size="8.5"><tspan fill="#bbb4cb">02</tspan> 查询 / 计算</text>
+  <text class="m" x="1048" y="516" font-size="8.5"><tspan fill="#bbb4cb">03</tspan> 解释结果</text>
+
+  <text class="b" x="836" y="566" font-size="11">已连接的数据表</text>
+  <text class="m" x="1164" y="566" font-size="9.5" text-anchor="end" letter-spacing="1.2">7 TABLES</text>
+
+  <line x1="836" y1="578" x2="1164" y2="578" stroke="#f1f0f6"/>
+  <text class="mono" x="836" y="598" font-size="10.5" fill="#4b5060">exp_measurements</text>
+  <text class="m" x="1164" y="598" font-size="9.5" text-anchor="end">96</text>
+  <line x1="836" y1="610" x2="1164" y2="610" stroke="#f6f5fa"/>
+  <text class="mono" x="836" y="630" font-size="10.5" fill="#4b5060">protein_assays</text>
+  <text class="m" x="1164" y="630" font-size="9.5" text-anchor="end">48</text>
+  <line x1="836" y1="642" x2="1164" y2="642" stroke="#f6f5fa"/>
+  <text class="mono" x="836" y="662" font-size="10.5" fill="#4b5060">experimental_groups</text>
+  <text class="m" x="1164" y="662" font-size="9.5" text-anchor="end">8</text>
+
+  <text class="m" x="836" y="690" font-size="10">◇ 所有 SQL 均在只读连接中执行</text>
+
+  <line x1="810" y1="820" x2="1190" y2="820" stroke="#edeef4"/>
+  <circle cx="840" cy="838" r="3" fill="#68b294"/>
+  <text class="m" x="850" y="842" font-size="10">本地隔离执行</text>
+  <text class="m" x="1164" y="842" font-size="10" text-anchor="end">— tokens</text>
+
+  <!-- 页脚 -->
+  <text class="m" x="50" y="878" font-size="10"><tspan fill="#7562d4" font-weight="650">XynA</tspan> Lab  ·  让研究过程清晰可见</text>
+  <text class="m" x="1190" y="878" font-size="9" text-anchor="end" letter-spacing="1.4">LOCAL DATA. TRACEABLE INSIGHTS.</text>
+</svg>

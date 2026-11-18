@@ -83,6 +83,8 @@ home_page/
 ├── papers/
 │   ├── egsdg.html           # 论文页 1：EGSDG（MIDL 2024）
 │   └── ocda.html            # 论文页 2：ATU / OCDA（MIDL 2025 审稿中）
+├── demo/                    # 功能展示页（纯静态，无逻辑）
+│   └── formopti.html        # FormOptiEngine 数据管理页
 ├── _layouts/
 │   └── default.html         # 唯一布局：左导航 + 右内容
 ├── _includes/
@@ -95,6 +97,7 @@ home_page/
 │   ├── experience.yml       # 工作经历（含子项目与指标）
 │   ├── projects.yml         # 项目实践
 │   ├── publications.yml     # 学术论文
+│   ├── showcase.yml         # 项目展示（08 区块）
 │   ├── patents.yml          # 发明专利
 │   ├── copyrights.yml       # 软件著作权
 │   ├── honors.yml           # 所获荣誉
@@ -106,7 +109,8 @@ home_page/
     │   ├── avatar.svg       # 侧栏字母标识（可换成自己的照片）
     │   ├── favicon.svg      # 站点图标
     │   ├── og-cover.png     # 社交分享预览图
-    │   └── papers/          # 从论文 PDF 提取的插图
+    │   ├── papers/          # 从论文 PDF 提取的插图
+    │   └── projects/        # 项目展示配图（截图 + 流水线图）
     └── files/               # 论文 PDF（EGSDG-MIDL2024.pdf、ATU-OCDA.pdf）
 ```
 

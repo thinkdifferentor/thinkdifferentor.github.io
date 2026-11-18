@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" role="img" aria-label="体检报告筛查工作台界面：深蓝顶栏、上传与批量识别面板、五项统计卡，以及筛查结果表格中的异常、正常、缺项与识别失败状态">
+  <defs>
+    <style>
+      .top     { fill: #0a1f2e; }
+      .mark    { fill: #087f77; }
+      .card    { fill: #ffffff; stroke: #d9e2e7; stroke-width: 1; }
+      .navy    { fill: #0f2b3d; }
+      .thead   { fill: #f6f9fa; }
+      .line    { stroke: #d9e2e7; stroke-width: 1; }
+      .sans    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }
+      .h1      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 19px; font-weight: 700; fill: #f5fbfc; }
+      .kick    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11.5px; fill: #9fb6c0; letter-spacing: .04em; }
+      .state   { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #c4d5dc; }
+      .drop-t  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 16px; font-weight: 700; fill: #122532; }
+      .drop-p  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #647481; }
+      .choose  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13px; font-weight: 700; fill: #087f77; }
+      .bl      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #afc2cb; }
+      .bw      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #f4fafb; }
+      .bw2     { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; fill: #f4fafb; }
+      .privacy { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 10px; fill: #98b0ba; }
+      .mlabel  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13px; fill: #647481; }
+      .mnum    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 26px; font-weight: 700; fill: #122532; }
+      .h2      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 18px; font-weight: 700; fill: #122532; }
+      .sum     { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #647481; }
+      .th      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11.5px; font-weight: 700; fill: #647481; letter-spacing: .04em; }
+      .cell    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13px; fill: #122532; }
+      .files   { font-family: "JetBrains Mono","Consolas",monospace; font-size: 12px; fill: #122532; }
+      .num     { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13px; fill: #33434f; }
+      .link    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; font-weight: 700; fill: #087f77; }
+      .st      { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11.5px; font-weight: 700; }
+      .btnp    { fill: #58d8cb; }
+      .btnpt   { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; font-weight: 700; fill: #082c2a; }
+      .btns    { fill: none; stroke: #537180; stroke-width: 1; }
+      .btnst   { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; font-weight: 700; fill: #eef7f8; }
+      .btnd    { fill: rgba(213,62,75,0.12); stroke: #a94a56; stroke-width: 1; }
+      .btndt   { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; font-weight: 700; fill: #ffd9dc; }
+    </style>
+  </defs>
+
+  <rect width="1240" height="900" fill="#eef3f6"/>
+
+  <!-- 顶栏 -->
+  <rect class="top" x="0" y="0" width="1240" height="82"/>
+  <rect x="0" y="79" width="1240" height="3" fill="#0a968c"/>
+  <rect class="mark" x="56" y="20" width="43" height="43" rx="12"/>
+  <path d="M77.5 30v23M66 41.5h23" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+  <text class="kick" x="112" y="34">健康管理中心</text>
+  <text class="h1" x="112" y="58">体检报告筛查工作台</text>
+
+  <rect x="1000" y="22" width="184" height="38" rx="19" fill="none" stroke="#2a4a5a"/>
+  <circle cx="1020" cy="41" r="4.5" fill="#40c797"/>
+  <text class="state" x="1034" y="46">服务已就绪</text>
+
+  <!-- 上传 + 批量面板 -->
+  <rect class="card" x="40" y="110" width="1160" height="196" rx="14"/>
+  <rect x="52" y="122" width="848" height="172" rx="9" fill="none" stroke="#a7b9c2" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <rect x="86" y="152" width="52" height="52" rx="12" fill="#d8f2ef"/>
+  <path d="M112 190v-20m0 0l-6 6m6-6l6 6M100 186v6a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3v-6" fill="none" stroke="#087f77" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="drop-t" x="158" y="168">上传体检报告</text>
+  <text class="drop-p" x="158" y="192">拖放到此处，或点击选择文件。支持 PDF 和常用图片，可多选。</text>
+
+  <rect x="760" y="160" width="104" height="38" rx="7" fill="#ffffff" stroke="#80beb9"/>
+  <text class="choose" x="812" y="184" text-anchor="middle">选择报告</text>
+
+  <!-- 右侧批量面板 -->
+  <path d="M900 110h286a14 14 0 0 1 14 14v168a14 14 0 0 1-14 14H900z" class="navy"/>
+  <text class="bl" x="924" y="140">本批次进度</text>
+  <text class="bw" x="1176" y="140" text-anchor="end">48 / 48 已完成</text>
+  <rect x="924" y="152" width="252" height="7" rx="3.5" fill="#294b5c"/>
+  <rect x="924" y="152" width="252" height="7" rx="3.5" fill="#37c5b7"/>
+
+  <rect x="924" y="172" width="252" height="44" rx="7" fill="rgba(10,150,140,0.12)" stroke="#2f6a67"/>
+  <text class="bl" x="936" y="192" fill="#76e3d8">执行路径</text>
+  <rect x="1006" y="180" width="158" height="28" rx="6" fill="#0f2b3d" stroke="#58d8cb"/>
+  <text class="bw2" x="1016" y="199">路径一：现有多模态识别</text>
+
+  <rect class="btns" x="924" y="228" width="112" height="30" rx="6"/>
+  <text class="btnst" x="980" y="248" text-anchor="middle">加载历史结果</text>
+  <rect class="btns" x="1044" y="228" width="132" height="30" rx="6"/>
+  <text class="btnst" x="1110" y="248" text-anchor="middle">导入整个文件夹</text>
+
+  <rect class="btnp" x="924" y="264" width="100" height="30" rx="6"/>
+  <text class="btnpt" x="974" y="284" text-anchor="middle">开始批量识别</text>
+  <rect class="btnd" x="1032" y="264" width="100" height="30" rx="6"/>
+  <text class="btndt" x="1082" y="284" text-anchor="middle">取消批量识别</text>
+
+  <!-- 统计 -->
+  <rect class="card" x="40" y="326" width="220" height="92" rx="12"/>
+  <text class="mlabel" x="58" y="356">全部报告</text>
+  <text class="mnum" x="58" y="396">48</text>
+
+  <rect class="card" x="272" y="326" width="220" height="92" rx="12"/>
+  <circle cx="290" cy="351" r="3.5" fill="#c64036"/>
+  <text class="mlabel" x="302" y="356" fill="#c64036">异常</text>
+  <text class="mnum" x="290" y="396">11</text>
+
+  <rect class="card" x="504" y="326" width="220" height="92" rx="12"/>
+  <circle cx="530" cy="351" r="3.5" fill="#14845d"/>
+  <text class="mlabel" x="542" y="356" fill="#14845d">正常</text>
+  <text class="mnum" x="522" y="396">29</text>
+
+  <rect class="card" x="736" y="326" width="220" height="92" rx="12"/>
+  <circle cx="762" cy="351" r="3.5" fill="#b36a13"/>
+  <text class="mlabel" x="774" y="356" fill="#b36a13">缺项</text>
+  <text class="mnum" x="754" y="396">6</text>
+
+  <rect class="card" x="968" y="326" width="232" height="92" rx="12"/>
+  <circle cx="994" cy="351" r="3.5" fill="#697480"/>
+  <text class="mlabel" x="1006" y="356" fill="#697480">识别失败</text>
+  <text class="mnum" x="986" y="396">2</text>
+
+  <!-- 结果面板 -->
+  <rect class="card" x="40" y="436" width="1160" height="440" rx="14"/>
+  <text class="h2" x="60" y="478">筛查结果</text>
+  <text class="sum" x="60" y="500">共 48 份，其中异常 11 份、缺项 6 份、识别失败 2 份</text>
+
+  <rect x="840" y="452" width="240" height="38" rx="8" fill="#f6f9fa" stroke="#d9e2e7"/>
+  <circle cx="862" cy="469" r="6" fill="none" stroke="#71818b" stroke-width="1.6"/>
+  <path d="M866.5 473.5l5 5" stroke="#71818b" stroke-width="1.6" stroke-linecap="round"/>
+  <text class="sum" x="880" y="475">搜索文件名或姓名</text>
+  <text class="link" x="1104" y="475">清空列表</text>
+  <line class="line" x1="40" y1="504" x2="1200" y2="504"/>
+
+  <!-- 表头 -->
+  <rect class="thead" x="40" y="504" width="1160" height="42"/>
+  <text class="th" x="60" y="530">文件名</text>
+  <text class="th" x="300" y="530">姓名</text>
+  <text class="th" x="376" y="530">年龄</text>
+  <text class="th" x="440" y="530">性别</text>
+  <text class="th" x="520" y="530">体重指数</text>
+  <text class="th" x="640" y="530">状态</text>
+  <text class="th" x="760" y="530">体检结论</text>
+  <line class="line" x1="40" y1="546" x2="1200" y2="546"/>
+
+  <!-- 行 1 -->
+  <text class="files" x="60" y="584">王强.pdf</text>
+  <text class="cell" x="300" y="584">王强</text>
+  <text class="num" x="376" y="584">42</text>
+  <text class="cell" x="440" y="584">男</text>
+  <text class="num" x="520" y="584">24.8</text>
+  <rect x="640" y="566" width="60" height="26" rx="6" fill="#fff0ee"/>
+  <text class="st" x="670" y="584" text-anchor="middle" fill="#c64036">异常</text>
+  <text class="cell" x="760" y="584">不推荐入职</text>
+  <text class="link" x="1136" y="584">查看</text>
+  <line class="line" x1="40" y1="602" x2="1200" y2="602"/>
+
+  <!-- 行 2 -->
+  <text class="files" x="60" y="640">刘芳.pdf</text>
+  <text class="cell" x="300" y="640">刘芳</text>
+  <text class="num" x="376" y="640">35</text>
+  <text class="cell" x="440" y="640">女</text>
+  <text class="num" x="520" y="640">21.3</text>
+  <rect x="640" y="622" width="60" height="26" rx="6" fill="#eaf8f1"/>
+  <text class="st" x="670" y="640" text-anchor="middle" fill="#14845d">正常</text>
+  <text class="cell" x="760" y="640">可以入职</text>
+  <text class="link" x="1136" y="640">查看</text>
+  <line class="line" x1="40" y1="658" x2="1200" y2="658"/>
+
+  <!-- 行 3 -->
+  <text class="files" x="60" y="696">张伟.jpg</text>
+  <text class="cell" x="300" y="696">张伟</text>
+  <text class="num" x="376" y="696">28</text>
+  <text class="cell" x="440" y="696">男</text>
+  <text class="num" x="520" y="696">19.6</text>
+  <rect x="640" y="678" width="60" height="26" rx="6" fill="#fff5e5"/>
+  <text class="st" x="670" y="696" text-anchor="middle" fill="#b36a13">缺项</text>
+  <text class="cell" x="760" y="696">补充缺失体检项目</text>
+  <text class="link" x="1136" y="696">查看</text>
+  <line class="line" x1="40" y1="714" x2="1200" y2="714"/>
+
+  <!-- 行 4 -->
+  <text class="files" x="60" y="752">李静.pdf</text>
+  <text class="cell" x="300" y="752">李静</text>
+  <text class="num" x="376" y="752">31</text>
+  <text class="cell" x="440" y="752">女</text>
+  <text class="num" x="520" y="752">22.7</text>
+  <rect x="640" y="734" width="60" height="26" rx="6" fill="#fff0ee"/>
+  <text class="st" x="670" y="752" text-anchor="middle" fill="#c64036">异常</text>
+  <text class="cell" x="760" y="752">不推荐入职</text>
+  <text class="link" x="1136" y="752">查看</text>
+  <line class="line" x1="40" y1="770" x2="1200" y2="770"/>
+
+  <!-- 行 5 -->
+  <text class="files" x="60" y="808">赵敏.pdf</text>
+  <text class="num" x="300" y="808">—</text>
+  <text class="num" x="376" y="808">—</text>
+  <text class="num" x="440" y="808">—</text>
+  <text class="num" x="520" y="808">—</text>
+  <rect x="640" y="790" width="86" height="26" rx="6" fill="#eef1f3"/>
+  <text class="st" x="683" y="808" text-anchor="middle" fill="#697480">识别失败</text>
+  <text class="cell" x="760" y="808">内容无法可靠读取</text>
+  <text class="link" x="1136" y="808">查看</text>
+
+  <text class="sum" x="60" y="856">静态展示 · 界面参照本地识别服务（127.0.0.1:8080）复刻，报告与数值为示例</text>
+</svg>

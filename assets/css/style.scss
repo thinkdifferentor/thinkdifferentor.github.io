@@ -30,7 +30,8 @@
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
-    "Liberation Mono", monospace;
+    "Liberation Mono", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", monospace;
 }
 
 [data-theme="light"] {
@@ -60,7 +61,8 @@
 *::after { box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
+  /* 不在这里开 smooth：原生锚点平滑滚动会在图片/字体载入造成布局位移时被取消，
+     导致点导航「跳不过去」。平滑由 JS 的 scrollIntoView 负责。 */
   scroll-padding-top: 32px;
   -webkit-text-size-adjust: 100%;
 }
@@ -374,7 +376,7 @@ a { color: inherit; }
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 26px;
   background: var(--panel);
 }
 
@@ -1146,7 +1148,111 @@ details.fold p {
 
 .skill-zh { font-size: 12.5px; font-weight: 500; color: var(--fg-2); }
 
-/* ── 13. 页脚 ────────────────────────────────────────────────── */
+/* ── 13. 项目展示 ────────────────────────────────────────────── */
+.showcase {
+  padding: 34px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.showcase:first-of-type { border-top: 0; padding-top: 4px; }
+
+.showcase-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-4);
+}
+
+.showcase-idx {
+  padding: 2px 6px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 2px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.showcase-kind { color: var(--fg-3); }
+.showcase-year { margin-left: auto; color: var(--fg-4); }
+
+.showcase-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.showcase-sub {
+  margin: 0 0 20px;
+  max-width: 46em;
+  font-size: 13.8px;
+  line-height: 1.85;
+  color: var(--fg-3);
+}
+
+.showcase-figs {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.showcase-figs--multi { grid-template-columns: 1fr 1fr; }
+
+.showcase-fig--wide { grid-column: 1 / -1; }
+
+.showcase-fig {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.showcase-fig .plate { padding: 12px; }
+
+.showcase-fig .plate img { max-height: 520px; }
+
+/* 界面截图按整栏宽度展示，不做高度裁切 */
+.showcase-fig--ui .plate img { max-height: none; width: 100%; }
+
+.showcase-points {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.showcase-points li {
+  position: relative;
+  padding-left: 18px;
+  max-width: 48em;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--fg-2);
+}
+
+.showcase-points li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.78em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--fg-3);
+}
+
+.showcase-points b { color: var(--fg); font-weight: 600; }
+
+/* ── 14. 页脚 ────────────────────────────────────────────────── */
 .foot {
   display: flex;
   flex-direction: column;
@@ -1158,7 +1264,7 @@ details.fold p {
 
 .foot-copy { margin: 0; font-size: 11.5px; color: var(--fg-4); }
 
-/* ── 14. 论文详情页 ──────────────────────────────────────────── */
+/* ── 15. 论文详情页 ──────────────────────────────────────────── */
 .paper-page .main-inner { max-width: 848px; }
 
 .paper-head { padding-bottom: 8px; }
@@ -1369,7 +1475,7 @@ details.fold p {
   border-top: 1px solid var(--line-soft);
 }
 
-/* ── 15. 提示条 ──────────────────────────────────────────────── */
+/* ── 16. 提示条 ──────────────────────────────────────────────── */
 .toast {
   position: fixed;
   left: 50%;
@@ -1391,7 +1497,7 @@ details.fold p {
 
 .toast.is-show { opacity: 1; transform: translate(-50%, 0); }
 
-/* ── 15.5 图片放大 ───────────────────────────────────────────── */
+/* ── 16.5 图片放大 ───────────────────────────────────────────── */
 .figure img,
 .plate img { cursor: zoom-in; }
 
@@ -1439,7 +1545,7 @@ details.fold p {
 
 body.is-locked { overflow: hidden; }
 
-/* ── 16. 入场动画 ────────────────────────────────────────────── */
+/* ── 17. 入场动画 ────────────────────────────────────────────── */
 /* 只有 JS 成功接管（.reveal-armed）后才会隐藏内容，脚本失败也不会白屏 */
 .reveal-armed .reveal {
   opacity: 0;
@@ -1456,7 +1562,7 @@ body.is-locked { overflow: hidden; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
 
-/* ── 17. 响应式 ──────────────────────────────────────────────── */
+/* ── 18. 响应式 ──────────────────────────────────────────────── */
 @media (max-width: 1120px) {
   .shell { grid-template-columns: 268px minmax(0, 1fr); }
   .rail { padding: 30px 22px 24px; }
@@ -1497,6 +1603,7 @@ body.is-locked { overflow: hidden; }
   .sec-en { display: none; }
   .stats { grid-template-columns: 1fr 1fr; }
   .duo, .skills { grid-template-columns: 1fr; }
+  .showcase-figs--multi { grid-template-columns: 1fr; }
   .tl, .honor { grid-template-columns: 1fr; row-gap: 8px; }
   .tl-body { padding-left: 20px; }
   .tl-body::before { bottom: -20px; }
@@ -1505,11 +1612,13 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 1200px) {
   .hero-top { display: block; }
   .hero-photo { width: 140px; margin: 24px 0 0; }
+  .hero-photo img { border-radius: 21px; }
 }
 
 @media (max-width: 520px) {
   .hero-name { font-size: 2rem; }
   .hero-photo { width: 116px; margin-top: 20px; }
+  .hero-photo img { border-radius: 17px; }
   .stat { padding: 13px 14px; }
   .stat-v { font-size: 15.5px; }
   .card { padding: 18px 16px; }
@@ -1517,7 +1626,7 @@ body.is-locked { overflow: hidden; }
   .stat-strip { grid-template-columns: 1fr; }
 }
 
-/* ── 18. 打印 / 导出 PDF ─────────────────────────────────────── */
+/* ── 19. 打印 / 导出 PDF ─────────────────────────────────────── */
 @media print {
   :root,
   [data-theme="dark"],
@@ -1560,7 +1669,7 @@ body.is-locked { overflow: hidden; }
   .hero-name { font-size: 26pt; margin-bottom: 8pt; }
   .hero-top { display: flex; gap: 16pt; }
   .hero-photo { flex: 0 0 64pt; margin-top: 0; }
-  .hero-photo img { border-radius: 2px; }
+  .hero-photo img { border-radius: 10px; }
   .hero-bio { font-size: 9.6pt; margin-bottom: 12pt; }
 
   .hero-bio, .tl-text, .card-text, .sub-desc, .point-list li, .sec-lead, .pub-teaser { color: #1f1f1f; }
@@ -1570,6 +1679,7 @@ body.is-locked { overflow: hidden; }
   .sec-num, .badge, .card-count, .skill-en { color: #0a6f53; }
   .tl, .honor { padding: 10pt 0; }
   .card, .pub, .figure { break-inside: avoid; page-break-inside: avoid; }
+  .showcase { break-inside: avoid; page-break-inside: avoid; padding: 18pt 0; }
   .sub, .kv, .subs li { break-inside: avoid; page-break-inside: avoid; }
   .sec-head, .card-head, .pub-head { break-after: avoid; page-break-after: avoid; }
   .sub-title, .tl-title { break-after: avoid; page-break-after: avoid; }

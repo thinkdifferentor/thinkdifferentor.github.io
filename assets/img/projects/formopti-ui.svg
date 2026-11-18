@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" width="1240" height="900" role="img" aria-label="FormOptiEngine 数据管理页界面：顶部导航四个页面、状态条显示数据行数与特征数、加载数据表单与当前数据集表格">
+  <defs>
+    <style>
+      .bg     { fill: #ffffff; }
+      .line   { stroke: #dee2e6; stroke-width: 1; }
+      .card   { fill: #ffffff; stroke: #dee2e6; stroke-width: 1; }
+      .soft   { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1; }
+      .fld    { fill: #ffffff; stroke: #ced4da; stroke-width: 1; }
+      .dash   { fill: #f8f9fa; stroke: #94a3b8; stroke-width: 1.6; stroke-dasharray: 6 4; }
+      .brand  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 17px; font-weight: 700; fill: #212529; }
+      .nav    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13.5px; fill: #495057; }
+      .navon  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13.5px; fill: #0d6efd; }
+      .mono   { font-family: "JetBrains Mono","Consolas",monospace; font-size: 12px; fill: #495057; }
+      .h3t    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 21px; font-weight: 600; fill: #212529; }
+      .sub    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #6c757d; }
+      .h5t    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 15.5px; font-weight: 600; fill: #212529; }
+      .lbl    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #343a40; }
+      .val    { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 13px; fill: #212529; }
+      .muted  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12px; fill: #6c757d; }
+      .ph     { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #adb5bd; }
+      .btnp   { fill: #0d6efd; }
+      .btnpt  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #ffffff; }
+      .btng   { fill: #ffffff; stroke: #6c757d; stroke-width: 1; }
+      .btngt  { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; fill: #6c757d; }
+      .th     { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 12.5px; font-weight: 600; fill: #212529; }
+      .td     { font-family: "JetBrains Mono","Consolas",monospace; font-size: 11.5px; fill: #343a40; }
+      .note   { font-family: "Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11px; fill: #adb5bd; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1240" height="900"/>
+
+  <!-- 导航 -->
+  <rect x="0" y="0" width="1240" height="54" fill="#ffffff"/>
+  <line class="line" x1="0" y1="54" x2="1240" y2="54"/>
+  <text class="brand" x="24" y="34">FormOptiEngine</text>
+  <text class="navon" x="884" y="33">数据管理</text>
+  <line x1="884" y1="40" x2="940" y2="40" stroke="#0d6efd" stroke-width="2"/>
+  <text class="nav" x="962" y="33">模型训练与推理</text>
+  <text class="nav" x="1078" y="33">配方优化</text>
+  <text class="nav" x="1150" y="33">数据分析</text>
+
+  <!-- 状态条 -->
+  <rect class="soft" x="24" y="70" width="1192" height="34" rx="6"/>
+  <text class="mono" x="38" y="92">数据行数: 480  |  特征数: 12  |  模型: 未训练</text>
+
+  <!-- 标题 -->
+  <text class="h3t" x="24" y="140">数据管理</text>
+  <text class="sub" x="24" y="162">数据加载、清洗与增强 — 对应 data 模块</text>
+
+  <!-- 页签 -->
+  <line class="line" x1="24" y1="206" x2="1216" y2="206"/>
+  <rect x="24" y="178" width="84" height="28" fill="#ffffff"/>
+  <text class="navon" x="38" y="197">加载数据</text>
+  <line x1="24" y1="206" x2="108" y2="206" stroke="#0d6efd" stroke-width="2"/>
+  <text class="nav" x="128" y="197">数据清洗</text>
+  <text class="nav" x="204" y="197">数据增强</text>
+
+  <!-- 加载数据 卡片 -->
+  <rect class="card" x="24" y="222" width="1192" height="404" rx="6"/>
+  <text class="h5t" x="40" y="254">加载数据</text>
+
+  <!-- 左列 -->
+  <text class="lbl" x="40" y="284">数据来源</text>
+  <circle cx="47" cy="304" r="6" fill="#ffffff" stroke="#adb5bd"/>
+  <circle cx="47" cy="304" r="3" fill="#0d6efd"/>
+  <text class="val" x="60" y="309">本地上传</text>
+  <circle cx="140" cy="304" r="6" fill="#ffffff" stroke="#adb5bd"/>
+  <text class="val" x="153" y="309">服务器路径</text>
+
+  <rect class="dash" x="40" y="324" width="576" height="54" rx="8"/>
+  <text class="muted" x="328" y="356" text-anchor="middle">拖放或 <tspan fill="#0d6efd">选择 CSV / Excel 文件</tspan></text>
+  <text class="muted" x="40" y="398">选文件后请点击右侧「加载数据」。</text>
+
+  <text class="lbl" x="40" y="422">文件路径（多文件用分号分隔）</text>
+  <rect class="fld" x="40" y="430" width="576" height="32" rx="6"/>
+  <text class="val" x="52" y="451">D:/data/ceramic_batch.csv</text>
+
+  <rect class="fld" x="40" y="478" width="14" height="14" rx="3"/>
+  <text class="val" x="64" y="490">多数据源合并</text>
+  <rect x="40" y="502" width="14" height="14" rx="3" fill="#0d6efd" stroke="#0d6efd"/>
+  <path d="M44 509l3 3 5-6" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+  <text class="val" x="64" y="514">仅保留共同特征列</text>
+  <rect x="40" y="526" width="14" height="14" rx="3" fill="#0d6efd" stroke="#0d6efd"/>
+  <path d="M44 533l3 3 5-6" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+  <text class="val" x="64" y="538">加载前做分布一致性检查</text>
+
+  <!-- 右列 -->
+  <text class="lbl" x="656" y="284">目标列</text>
+  <rect class="fld" x="656" y="292" width="536" height="32" rx="6"/>
+  <text class="val" x="668" y="313">强度</text>
+
+  <text class="lbl" x="656" y="348">特征模式</text>
+  <circle cx="663" cy="368" r="6" fill="#ffffff" stroke="#adb5bd"/>
+  <circle cx="663" cy="368" r="3" fill="#0d6efd"/>
+  <text class="val" x="676" y="373">全量特征</text>
+  <circle cx="756" cy="368" r="6" fill="#ffffff" stroke="#adb5bd"/>
+  <text class="val" x="769" y="373">指定特征</text>
+
+  <text class="lbl" x="656" y="400">指定特征列（逗号分隔）</text>
+  <rect class="fld" x="656" y="408" width="536" height="40" rx="6"/>
+  <text class="ph" x="668" y="432">feat1, feat2</text>
+
+  <text class="lbl" x="656" y="474">配方列</text>
+  <rect class="fld" x="656" y="482" width="536" height="32" rx="6"/>
+  <text class="val" x="668" y="503">Fe, C, Mn, Si</text>
+
+  <text class="lbl" x="656" y="538">工艺列</text>
+  <rect class="fld" x="656" y="546" width="536" height="32" rx="6"/>
+  <text class="val" x="668" y="567">烧结温度, 保温时间</text>
+
+  <!-- 按钮 -->
+  <rect class="btnp" x="40" y="576" width="94" height="32" rx="6"/>
+  <text class="btnpt" x="87" y="597" text-anchor="middle">加载数据</text>
+  <rect class="btng" x="146" y="576" width="132" height="32" rx="6"/>
+  <text class="btngt" x="212" y="597" text-anchor="middle">清除已加载数据</text>
+
+  <!-- 当前数据集 卡片 -->
+  <rect class="card" x="24" y="642" width="1192" height="228" rx="6"/>
+  <text class="h5t" x="40" y="674">当前数据集</text>
+
+  <text class="lbl" x="40" y="700">文件名</text>
+  <rect class="fld" x="40" y="708" width="252" height="32" rx="6"/>
+  <text class="val" x="52" y="729">ceramic_batch.csv</text>
+  <rect class="btng" x="304" y="708" width="88" height="32" rx="6"/>
+  <text class="btngt" x="348" y="729" text-anchor="middle">导出 CSV</text>
+
+  <!-- 表格 -->
+  <rect x="40" y="758" width="1160" height="32" fill="#f1f5f9"/>
+  <line class="line" x1="40" y1="790" x2="1200" y2="790"/>
+  <text class="th" x="52" y="779">Fid</text>
+  <text class="th" x="112" y="779">Sid</text>
+  <text class="th" x="182" y="779">Fe</text>
+  <text class="th" x="244" y="779">C</text>
+  <text class="th" x="304" y="779">Mn</text>
+  <text class="th" x="364" y="779">Si</text>
+  <text class="th" x="436" y="779">烧结温度</text>
+  <text class="th" x="548" y="779">保温时间</text>
+  <text class="th" x="664" y="779">强度</text>
+
+  <text class="td" x="52" y="812">F01</text>
+  <text class="td" x="112" y="812">S001</text>
+  <text class="td" x="182" y="812">68.20</text>
+  <text class="td" x="244" y="812">0.45</text>
+  <text class="td" x="304" y="812">1.20</text>
+  <text class="td" x="364" y="812">0.80</text>
+  <text class="td" x="436" y="812">1280</text>
+  <text class="td" x="548" y="812">120</text>
+  <text class="td" x="664" y="812">842.5</text>
+  <line class="line" x1="40" y1="824" x2="1200" y2="824"/>
+
+  <text class="td" x="52" y="846">F01</text>
+  <text class="td" x="112" y="846">S003</text>
+  <text class="td" x="182" y="846">68.60</text>
+  <text class="td" x="244" y="846">0.41</text>
+  <text class="td" x="304" y="846">1.18</text>
+  <text class="td" x="364" y="846">0.83</text>
+  <text class="td" x="436" y="846">1300</text>
+  <text class="td" x="548" y="846">90</text>
+  <text class="td" x="664" y="846">851.7</text>
+
+  <text class="note" x="24" y="888">静态展示 · 界面参照本地 Dash 应用（127.0.0.1:8050）复刻，示例数据</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="1200" height="470" role="img" aria-label="FormOptiEngine 流水线：数据加载、清洗、增强、建模、推理、配方优化，并由 Dash 前端串联四页">
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9aa4ae"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #d5dbe2; stroke-width: 1.2; }
+      .t   { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 15px; font-weight: 600; fill: #1d2329; }
+      .s   { font-family: "Inter","PingFang SC","Microsoft YaHei",sans-serif; font-size: 11.5px; fill: #6b747c; }
+      .n   { font-family: "JetBrains Mono","Consolas",monospace; font-size: 10.5px; fill: #0d8a68; letter-spacing: .08em; }
+      .l   { stroke: #9aa4ae; stroke-width: 1.2; fill: none; marker-end: url(#ar2); }
+      .band{ fill: #fbfcfa; stroke: #dfe4e8; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="470" fill="#ffffff"/>
+
+  <!-- 六个步骤 -->
+  <text class="n" x="22" y="62">01 DATA</text>
+  <rect class="box" x="20" y="72" width="176" height="112" rx="8"/>
+  <text class="t" x="36" y="104">数据加载</text>
+  <text class="s" x="36" y="128">特征选择</text>
+  <text class="s" x="36" y="146">单源 / 多源同构</text>
+  <text class="s" x="36" y="164">异构数据对齐</text>
+
+  <text class="n" x="217" y="62">02 CLEAN</text>
+  <rect class="box" x="215" y="72" width="176" height="112" rx="8"/>
+  <text class="t" x="231" y="104">数据清洗</text>
+  <text class="s" x="231" y="128">异常 / 空值剔除</text>
+  <text class="s" x="231" y="146">重复样本去重</text>
+  <text class="s" x="231" y="164">强相关特征剪枝</text>
+
+  <text class="n" x="412" y="62">03 AUGMENT</text>
+  <rect class="box" x="410" y="72" width="176" height="112" rx="8"/>
+  <text class="t" x="426" y="104">数据增强</text>
+  <text class="s" x="426" y="128">物理约束加噪</text>
+  <text class="s" x="426" y="146">工艺曲线插值</text>
+  <text class="s" x="426" y="164">区间内安全外推</text>
+
+  <text class="n" x="607" y="62">04 MODEL</text>
+  <rect class="box" x="605" y="72" width="176" height="112" rx="8"/>
+  <text class="t" x="621" y="104">模型训练</text>
+  <text class="s" x="621" y="128">AutoGluon</text>
+  <text class="s" x="621" y="146">Optuna 调参</text>
+  <text class="s" x="621" y="164">TabPFN / TabICL</text>
+
+  <text class="n" x="802" y="62">05 INFER</text>
+  <rect class="box" x="800" y="72" width="176" height="112" rx="8"/>
+  <text class="t" x="816" y="104">模型推理</text>
+  <text class="s" x="816" y="128">多模型对比</text>
+  <text class="s" x="816" y="146">均值 / 方差</text>
+  <text class="s" x="816" y="164">分类置信度</text>
+
+  <text class="n" x="997" y="62">06 OPTIMIZE</text>
+  <rect class="box" x="995" y="72" width="176" height="112" rx="8" stroke="#0d8a68" stroke-opacity="0.45"/>
+  <text class="t" x="1011" y="104">配方优化</text>
+  <text class="s" x="1011" y="128">贝叶斯 · 遗传 · PSO</text>
+  <text class="s" x="1011" y="146">差分进化 · 退火</text>
+  <text class="s" x="1011" y="164">引力搜索</text>
+
+  <!-- 主链箭头 -->
+  <path class="l" d="M196 128 H211"/>
+  <path class="l" d="M391 128 H406"/>
+  <path class="l" d="M586 128 H601"/>
+  <path class="l" d="M781 128 H796"/>
+  <path class="l" d="M976 128 H991"/>
+
+  <!-- 分析与解释：数据分析挂在「数据清洗」下，SHAP 归因挂在「模型推理」下 -->
+  <text class="n" x="217" y="240">07 ANALYTICS</text>
+  <rect class="box" x="215" y="250" width="176" height="76" rx="8"/>
+  <text class="t" x="231" y="280">数据分析</text>
+  <text class="s" x="231" y="302">T-SNE / UMAP · 协方差</text>
+
+  <text class="n" x="802" y="240">08 EXPLAIN</text>
+  <rect class="box" x="800" y="250" width="176" height="76" rx="8"/>
+  <text class="t" x="816" y="280">SHAP 归因</text>
+  <text class="s" x="816" y="302">特征权重 · 单样本贡献</text>
+
+  <path class="l" d="M303 188 V246" stroke-dasharray="3 3"/>
+  <path class="l" d="M888 188 V246" stroke-dasharray="3 3"/>
+
+  <!-- Dash 前端 -->
+  <rect class="band" x="20" y="362" width="1151" height="72" rx="8"/>
+  <text class="n" x="38" y="390">WEB UI</text>
+  <text class="t" x="38" y="414">Dash 前端：数据 → 模型 → 优化 → 分析，四页联动</text>
+  <text class="s" x="880" y="414">http://127.0.0.1:8050</text>
+  <path class="l" d="M1083 188 V358" stroke-dasharray="3 3"/>
+  <path class="l" d="M888 330 V358" stroke-dasharray="3 3"/>
+</svg>
